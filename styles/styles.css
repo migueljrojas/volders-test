@@ -1,0 +1,395 @@
+/*
+  INDEX
+  #01. Global Variables
+  #02. Resets and general styles
+  #03. Header
+  #04. Main Structure
+  #05. Progress Bar
+  #06. Form Call-To-Action
+  #07. Form Body
+*/
+
+/* #01. Global Variables */
+:root {
+  --main-color: #1D4498;
+  --main-color-faded: rgba(29, 68, 152, .3);
+  --label-color: #ccc;
+  --breakpoint-xsmall: 600px;
+  --breakpoint-small: 900px;
+  --breakpoint-medium: 1200px;
+  --breakpoint-large: 1600px;
+  --global-transition: all .3s cubic-bezier(.785, .135, .15, .86);
+  --button-color: #01C98A;
+  --button-hover: #00b97a;
+  --button-disabled: var(--label-color);
+  --error-color: #c03;
+  --shadow-color: rgba(0,0,0,.15);
+}
+
+/* #02. Resets and general styles */
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #e9f6fd;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+button {
+  -webkit-appearance: none; 
+  appearance: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* #03. Header */
+.header {
+  position: absolute;
+  z-index: 1000;
+  padding: 20px 25px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.header__container {
+  width: 90%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+.header__logo img {
+  height: 50px;
+  width: auto;
+  display: inline-block;
+}
+
+/* #04. Main Structure */
+
+.volders {
+  padding: 120px 0 30px;  
+}
+
+@media (min-width: 600px) {
+  .volders {
+    padding: 180px 0 30px;  
+  }
+}
+
+.volders__form {
+  width: 100%;
+  max-width: 600px;
+  background: #fff;
+  box-shadow: 0 0 30px var(--shadow-color);
+  margin: auto;
+}
+
+.volders__form__header,
+.volders__form__footer,
+.volders__form__body {
+  padding: 30px 40px;
+}
+
+@media (min-width: 600px) {
+  .volders__form__header,
+  .volders__form__body {
+    padding: 30px;
+  }
+
+  .volders__form__footer {
+    padding: 15px 30px;
+  }
+}
+
+.volders__form__header,
+.volders__form__footer {
+  background: #f2f2f2;
+}
+
+.volders__form__footer {
+  text-align: right;
+}
+
+/* #05. Progress Bar */
+
+.volders__progress-bar {
+  color: var(--main-color);
+  display: flex;
+  align-items: center;
+}
+
+.volders__progress-bar__counter {
+  font-size: 16px;
+  font-weight: 600;
+  padding-right: 15px;
+}
+
+.volders__progress-bar__track {
+  flex-grow: 2;
+  border-radius: 3px;
+  height: 6px;
+  background: var(--main-color-faded);
+  position: relative;
+}
+
+.volders__progress-bar__track::after {
+  transition: var(--global-transition);
+  content: '';
+  position: absolute;
+  left:0;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--main-color);
+}
+
+.volders__progress-bar__track[data-progress="25"]::after {
+  width: 25%;
+}
+
+.volders__progress-bar__track[data-progress="50"]::after {
+  width: 50%;
+}
+
+/* #06. Form Call-To-Action */
+
+.volders__form__cta {
+  transition: var(--global-transition);
+  display: inline-block;
+  font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  background: var(--button-color);
+  padding: 0 30px;
+  height: 40px;
+  line-height: 40px;
+  border:none;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .volders__form__cta {
+    width: 30%;
+  }
+}
+
+.volders__form__cta:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.volders__form__cta:hover {
+  cursor: pointer;
+}
+
+.volders__form__cta:disabled {
+  pointer-events: none;
+  opacity: .5;
+  background: var(--button-disabled);
+}
+
+.volders__form__cta::before {
+  content: '';
+  transition: var(--global-transition);
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+  transform-origin: center;
+  background: var(--button-hover);
+  width: 120%;
+  height: 0;
+  padding-bottom: 120%;
+  border-radius: 50%; 
+}
+
+.volders__form__cta:hover::before {
+  transform: translate3d(-50%, -50%, 0) scale3d(1, 1, 1);
+}
+
+.volders__form__cta span {
+  position: relative;
+  z-index: 2;
+}
+
+/* #07. Form Body */
+
+.volders__form__title {
+  color: var(--main-color);
+  margin: 0;
+  font-size: 24px;
+}
+
+@media (min-width: 600px) {
+  .volders__form__title {
+    font-size: 32px;
+  }
+}
+
+.volders__form__wrapper {
+  padding: 40px 0 20px;
+  transition: var(--global-transition);
+}
+
+.volders__form__wrapper.js-done {
+  opacity: 0;
+}
+
+@media (min-width: 600px) {
+  .volders__form__wrapper {
+    padding: 60px 0 30px;
+  }
+}
+
+.volders__form__section-title {
+  color: var(--main-color);
+  margin: 0;
+  font-size: 16px;
+}
+
+.volders__form__section:not(:last-child) {
+  padding-bottom: 30px;
+}
+
+@media (min-width: 600px) {
+  .volders__form__section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.volders__form__group {
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+}
+
+.volders__form__group.js-error .volders__form__label {
+  color: var(--error-color);
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.volders__form__group.js-error .volders__form__input {
+  border: 1px solid var(--error-color);
+}
+
+.volders__form__group.js-error .volders__form__input::placeholder {
+  opacity: 0;
+}
+
+.volders__form__group.js-error .volders__form__input-error {
+  opacity: 1;
+}
+
+@media (min-width: 600px) {
+  .volders__form__group {
+    width: 50%;
+    flex-basis: 50%;
+  }
+
+  .volders__form__group:nth-child(even) {
+    padding-left: 10px;
+  }
+
+  .volders__form__group:nth-child(even) .volders__form__label {
+    left: 21px;
+  }
+
+  .volders__form__group:nth-child(even) .volders__form__input-error {
+    left: 11px;
+  }
+
+  .volders__form__group:nth-child(odd) {
+    padding-right: 10px;
+  }
+
+  .volders__form__group.volders__form__group--70 {
+    width: 70%;
+    flex-basis: 70%;
+  }
+
+  .volders__form__group.volders__form__group--30 {
+    width: 30%;
+    flex-basis: 30%;
+  }
+}
+
+.volders__form__input {
+  transition: var(--global-transition);
+  width: 100%;
+  padding: 0 10px;
+  height: 40px;
+  color: #333;
+  font-size: 18px;
+  font-weight: 300;
+  border: 1px solid var(--label-color);
+  appearance: none;
+}
+
+.volders__form__input:focus {
+  border: 1px solid var(--main-color);
+  outline: none;
+  box-shadow: 0 0 3px var(--shadow-color);
+}
+
+.volders__form__input:focus + .volders__form__label {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.volders__form__input:focus::placeholder {
+  opacity: 0;
+}
+
+.volders__form__input::placeholder {
+  color: var(--label-color);
+  transition: var(--global-transition);
+}
+
+.volders__form__label {
+  transition: var(--global-transition);
+  position: absolute;
+  left: 11px;
+  top: 10px;
+  font-size: 10px;
+  color: var(--label-color);
+  background: #fff;
+  padding: 0 3px;
+  opacity: 0;
+  transform: translateY(200%);
+  pointer-events: none;
+}
+
+.volders__form__input-error {
+  transition: var(--global-transition);
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  color: var(--error-color);
+  left: 0;
+  font-size: 10px;
+}

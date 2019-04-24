@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Volders - Contract Manager | Sign Up</title>
+  <link href="./styles/styles.css" rel="stylesheet" />
+</head>
+<body>
+  <header class="header">
+    <div class="header__container">
+      <a class="header__logo" href="#">
+        <img src="./images/volders-logo.svg" alt="Volders logo | We handle contracts for you" />
+      </a>
+    </div>
+  </header>
+  <main class="volders">
+    <form class="volders__form">
+      <div class="volders__form__header">
+        <div class="volders__progress-bar">
+          <div class="volders__progress-bar__counter"><span>25</span>%</div>
+          <div class="volders__progress-bar__track" data-progress="25"></div>
+        </div>
+      </div>
+      <div class="volders__form__body">
+        <h1 class="volders__form__title">Let's start the process</h1>
+        <div class="volders__form__wrapper">
+          <h3 class="volders__form__section-title">Name</h3>
+          <div class="volders__form__section">
+            <div class="volders__form__group">
+              <input type="text" id="first-name" name="first-name" tab-order="1" class="volders__form__input" placeholder="First name" />
+              <label class="volders__form__label">First name</label>
+              <span class="volders__form__input-error"></span>
+            </div>
+            <div class="volders__form__group">
+              <input type="text" id="last-name" name="last-name" tab-order="2" class="volders__form__input" placeholder="Last name" />
+              <label class="volders__form__label">Last name</label>
+              <span class="volders__form__input-error"></span>
+            </div>
+          </div>
+          <h3 class="volders__form__section-title">Address</h3>
+          <div class="volders__form__section">
+            <div class="volders__form__group volders__form__group--70">
+              <input type="text" id="street-name" name="street-name" tab-order="3" class="volders__form__input" placeholder="Street name" />
+              <label class="volders__form__label">Street name</label>
+              <span class="volders__form__input-error"></span>
+            </div>
+            <div class="volders__form__group volders__form__group--30">
+              <input type="number" id="street-number" name="street-number" tab-order="4" class="volders__form__input" placeholder="Number" />
+              <label class="volders__form__label">Number</label>
+              <span class="volders__form__input-error"></span>
+            </div>
+            <div class="volders__form__group volders__form__group--30">
+              <input type="number" id="zipcode" name="zipcode" tab-order="5" class="volders__form__input" placeholder="Zipcode" />
+              <label class="volders__form__label">Zipcode</label>
+              <span class="volders__form__input-error"></span>
+            </div>
+            <div class="volders__form__group volders__form__group--70">
+              <input type="text" id="city" name="city" tab-order="6" class="volders__form__input" placeholder="City" />
+              <label class="volders__form__label">City</label>
+              <span class="volders__form__input-error"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="volders__form__footer">
+        <button class="volders__form__cta" tab-order="7" type="button">
+          <span>Next</span>
+        </button>
+      </div>
+    </form>
+  </main>
+  <script src="./scripts/scripts.js"></script>
+</body>
+</html>
